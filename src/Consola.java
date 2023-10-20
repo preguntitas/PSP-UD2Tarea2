@@ -3,7 +3,9 @@ import java.util.Scanner;
 
 public class Consola {
     public static void main(String[] args) {
-        ProcessBuilder pb = new ProcessBuilder("zsh");
+        //Version Linux
+        //ProcessBuilder pb = new ProcessBuilder("zsh");
+        ProcessBuilder pb = new ProcessBuilder("cmd");
         pb.inheritIO();
         Scanner entrada = new Scanner(System.in);
         try {
