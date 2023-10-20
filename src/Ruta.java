@@ -10,9 +10,9 @@ public class Ruta {
             System.exit(3);
         }
         // Version original en GNU/Linux
-        //ProcessBuilder pb = new ProcessBuilder("ls");
-        ProcessBuilder pb = new ProcessBuilder("cmd","/c","dir");
-        pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
+        ProcessBuilder pb = new ProcessBuilder("ls");
+        //ProcessBuilder pb = new ProcessBuilder("cmd","/c","dir");
+        //pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
         File directorio = new File(args[0]);
         if(!(directorio.exists() && directorio.isDirectory())) {
             System.out.println("El directorio no existe o no es un directorio");
