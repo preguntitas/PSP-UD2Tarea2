@@ -1,7 +1,7 @@
 import java.io.*;
 
 public class Ruta {
-    public static void main(String[] args) {
+    public static void main(String[] args) { // comprobamos los parámetros
         if (args.length<=0){
             System.out.println("No se ha pasado el directorio");
             System.exit(2);
@@ -17,15 +17,15 @@ public class Ruta {
             System.out.println("El directorio no existe o no es un directorio");
             System.exit(4);
         }
-        pb.directory(directorio);
+        pb.directory(directorio); // cambiamos al direcctorio
         try{
             Process p = pb.start();
             InputStream is = p.getInputStream();
             InputStreamReader isr = new InputStreamReader(is);
-            BufferedReader br = new BufferedReader(isr);
+            BufferedReader br = new BufferedReader(isr); // buffer de lectura
             String linea;
             while((linea=br.readLine())!=null){
-                System.out.println(linea);
+                System.out.println(linea); // mostramos las lineas que leemos del buffer
             }
             int codigoRetorno = p.waitFor();
             System.out.println("El proceso " + pb.command() + " ha finalizado con el codigo " + codigoRetorno);

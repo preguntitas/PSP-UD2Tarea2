@@ -6,14 +6,10 @@ public class Consola {
         //Version Linux
         //ProcessBuilder pb = new ProcessBuilder("zsh");
         ProcessBuilder pb = new ProcessBuilder("cmd");
-        pb.inheritIO();
-        Scanner entrada = new Scanner(System.in);
+        pb.inheritIO(); // capturamos la salida y errores hacia el principal, y pasamos las entradas al subproceso
         try {
             Process p = pb.start();
-            while (p.isAlive()) {
-                entrada.nextLine();
-            }
-            int codigoRetorno = p.waitFor();
+           int codigoRetorno = p.waitFor();// saldremos cuando finalice, Cuando se use el comando exit
             System.out.println("El proceso ha finalizado con el codigo: " + codigoRetorno);
         } catch (IOException e) {
             System.out.println("Error en el proceso: " + e.getMessage());
